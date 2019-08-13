@@ -98,6 +98,33 @@ class Aitoc_Aitvbulletin_Helper_Data extends Mage_Core_Helper_Abstract
     }
     
     /**
+     * Load customer by vbulletin user id
+     *
+     * @param   integer $forumUserId
+     * @param   integer $storeId
+     * @return  Mage_Customer_Model_Customer
+     */
+    public function getCustomerByForumUserId($forumUserId, $storeId)
+    {
+        $customer = Mage::getModel('customer/customer');
+        /* @var $customer Mage_Customer_Model_Customer */
+        
+        $collection = $customer->getCollection();
+        /* @var $collection Mage_Customer_Model_Entity_Customer_Collection */
+        
+        $collection
+            ->addAttributeToFilter('aitvbulletin_user_id', array('eq' => $forumUserId))
+            ;
+        
+        if ($data = $collection->getFirstItem())
+        {
+            $customer->load($data->getId());
+        }
+            
+        return $customer;
+    }
+    
+    /**
      * Print transparent GIF 1x1 pixel
      *
      * @param Mage_Core_Controller_Response_Http $response

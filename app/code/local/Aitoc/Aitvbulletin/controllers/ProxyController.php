@@ -23,11 +23,8 @@ class Aitoc_Aitvbulletin_ProxyController extends Mage_Core_Controller_Front_Acti
             return $this->_forward('noRoute');
         }
 
-        $customer = Mage::getModel('customer/customer');
-        /* @var $customer Aitoc_Aitvbulletin_Model_Rewrite_FrontCustomer */
-        
-        $customer->loadByForumUserId($userId, Mage::app()->getStore()->getId());
-        
+        $customer = Mage::helper('aitvbulletin')->getCustomerByForumUserId($userId, Mage::app()->getStore()->getId());
+        /* @var $customer Mage_Customer_Model_Customer */
         if ($customer->getId())
         {
 //header('P3P: CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"'); 

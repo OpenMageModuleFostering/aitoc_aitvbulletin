@@ -3,7 +3,7 @@
     "type": "magento-module",
     "license": "OSL-v3.0",
     "homepage": "",
-    "description": "vBulletin Integration Lite",
+    "description": "This extension provides basic integration of Magento and vBulletin. Let your customers create useful content about your products and drive you more business.",
     "authors": [
     {
         "name": "AITOC Inc.",

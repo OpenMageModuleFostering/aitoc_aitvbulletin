@@ -3,7 +3,7 @@
 <config>
     <modules>
         <Aitoc_Aitvbulletin>
-            <version>1.3.12</version>
+            <version>1.3.13</version>
         </Aitoc_Aitvbulletin>
     </modules>
 
@@ -29,12 +29,6 @@
                     </aitmagentovb_hash>
                 </entities>
             </aitvbulletin_vbulletin_resource>
-            
-            <customer>
-                <rewrite>
-                    <customer>Aitoc_Aitvbulletin_Model_Rewrite_FrontCustomer</customer>
-                </rewrite>
-            </customer>
             
         </models>
         <blocks>
@@ -90,6 +84,15 @@
                     </aitoc_aitvbulletin>
                 </observers>
             </customer_logout>
+            <customer_load_after>
+                <observers>
+                    <aitoc_aitvbulletin>
+                        <type>singleton</type>
+                        <class>aitvbulletin/observer</class>
+                        <method>addVbuserInfo</method>
+                    </aitoc_aitvbulletin>
+                </observers>
+            </customer_load_after>
         </events>
         
         <layout>
