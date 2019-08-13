@@ -22,9 +22,9 @@
                     <fields>
                         <enabled translate="label comment">
                             <label>Enable vBulletin integration</label>
-                            <comment><![CDATA[please refresh the cache if you change this value]]></comment>
+                            <comment><![CDATA[If allowed sending usage statictics the following will be sent to AITOC: hostname, magento version, quantity of vB users<br/><i>Please refresh the cache if you change this value</i>]]></comment>
                             <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <source_model>aitvbulletin/config_sourceForum</source_model>
                             <backend_model>aitvbulletin/config_backendForum</backend_model>
                             <sort_order>5</sort_order>
                             <show_in_default>1</show_in_default>
@@ -33,7 +33,7 @@
                         </enabled>
                         <linktitle translate="label comment">
                             <label>Forum Link Title</label>
-                            <comment><![CDATA[title of the footer link to vBulletin forums<br/>please refresh the cache if you change this value]]></comment>
+                            <comment><![CDATA[Title of the footer link to vBulletin forums<br/><i>Please refresh the cache if you change this value</i>]]></comment>
                             <frontend_type>text</frontend_type>
                             <sort_order>14</sort_order>
                             <show_in_default>1</show_in_default>

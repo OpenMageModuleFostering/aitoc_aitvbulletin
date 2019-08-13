@@ -31,7 +31,26 @@ abstract class Aitoc_Aitvbulletin_Model_Notification_Abstract extends Mage_Core_
                 $service
                     ->setServiceUrl(self::SERVICE_URL)
                     ->connect();
-                $this->setData($service->{$this->_serviceMethod}(array()));
+                
+                $aData = array();
+                
+                /**
+                 * Check if it's allowed sending usage statistics
+                 * @see Aitoc_Aitvbulletin_Model_Config_SourceForum::toOptionArray()
+                 */
+                if (2 == Mage::getStoreConfig('aitvbulletin/forum/enabled'))
+                {
+                    $collection = Mage::getModel('customer/customer')->getCollection();
+                    /* @var $collection Mage_Customer_Model_Entity_Customer_Collection */
+                    $collection->addAttributeToFilter('aitvbulletin_user_id', array('neq' => 0));
+                    $aData = array(
+                        'host'    => Mage::getBaseUrl(),
+                        'version' => Mage::getVersion(),
+                        'users'   => $collection->getSize(),
+                    );
+                }
+                $this->setData($service->{$this->_serviceMethod}($aData));
+                
                 $service->disconnect();
             }
             catch (Exception $e)
@@ -65,7 +84,7 @@ abstract class Aitoc_Aitvbulletin_Model_Notification_Abstract extends Mage_Core_
     {
         if ($this->_cacheKey)
         {
-            Mage::app()->saveCache(serialize($this->getData()), $this->_cacheKey, array(), 3600*12);
+            Mage::app()->saveCache(serialize($this->getData()), $this->_cacheKey, array(), 3600*24);
         }
         
         return $this;
