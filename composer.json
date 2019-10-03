@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Aitoc_Aitvbulletin",
+    "name": "OpenMageModuleFostering\/Aitoc_Aitvbulletin",
     "type": "magento-module",
     "license": "OSL-v3.0",
     "homepage": "",
     "description": "This extension provides basic integration of Magento and vBulletin. Let your customers create useful content about your products and drive you more business.",
     "authors": [
-    {
-        "name": "AITOC Inc.",
-        "email": "magsupport@aitoc.com"
-    }
-],
+        {
+            "name": "AITOC Inc.",
+            "email": "magsupport@aitoc.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
