@@ -1,3 +1,5 @@
+
+
 ## Original Package Description
 
 This extension provides basic integration of Magento and vBulletin. Let your customers create useful content about your products and drive you more business.
